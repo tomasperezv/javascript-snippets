@@ -46,17 +46,6 @@ endsnippet
 snippet ter
 ${1:/* condition */} ? ${2:a} : ${0:b}
 endsnippet
-# switch
-snippet switch
-switch (${1:expression}) {
-  case '${3:case}':
-    ${4}
-    break;
-  ${0}
-  default:
-    ${2}
-}
-endsnippet
 
 # case
 snippet case
@@ -425,4 +414,15 @@ client.connect(function(err) {
   });
 
 });
+endsnippet
+
+###############################################################################
+# Dynamic snippets
+###############################################################################
+
+# switch
+snippet switch "Unique Pointer" i
+std::unique_ptr<${1:`!p
+snip.rv = snip.v.text.strip("*") or "klass"
+`}>
 endsnippet
