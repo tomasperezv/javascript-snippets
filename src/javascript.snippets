@@ -433,10 +433,11 @@ if args:
  for arg in args:
   snip += " * @param {} %s" % arg
 `
- * @${3:public}
+ * @return {$3}
+ * @${4:public}
  */
 var ${1:function} = function(${2:arg}) {
-  ${4:body}
+  ${5:body}
 };
 endsnippet
 
@@ -447,9 +448,26 @@ if args:
  for arg in args:
   snip += " * @param {} %s" % arg
 `
- * @${4:public}
+ * @return {$4}
+ * @${5:public}
  */
 ${1:object}.prototype.${2:function} = function(${3:arg}) {
-  ${5:Body}
+  ${6:Body}
 };
+endsnippet
+
+snippet cvar "[Javascript] /* @var {type} */"
+/**
+ * @type {$2} `!p snip.rv = t[1] `
+ * @${3:public}
+ */
+var $1 = $4;
+endsnippet
+
+snippet cprop "[Javascript] this.property = value;"
+/**
+ * @type {$2} `!p snip.rv = t[1] `
+ * @${3:public}
+ */
+this.$1 = $4;
 endsnippet
