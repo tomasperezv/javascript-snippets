@@ -414,12 +414,6 @@ class Arg(object):
  def __str__(self):
   return self.name
 
- def __unicode__(self):
-  return self.name
-
- def is_kwarg(self):
-  return '=' in self.arg
-
 def get_args(arglist):
   args = [Arg(arg) for arg in arglist.split(',') if arg]
   args = [arg for arg in args if arg.name != 'self']
