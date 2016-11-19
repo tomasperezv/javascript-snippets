@@ -477,3 +477,10 @@ snippet cprop "[Javascript] this.property = value;"
  */
 this.$1 = $4;
 endsnippet
+
+snippet addEvent "element.addEventListener"
+$1.addEventListener('$2', function(event) {
+  $3
+});
+endsnippet
+
