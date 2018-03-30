@@ -358,16 +358,16 @@ requestInterface.request(url, function(response) {
 endsnippet
 
 snippet nrequest-post
-var requestInterface = require('${1:http or https}');
-var querystring = require('querystring');
+const requestInterface = require('${1:http or https}');
+const querystring = require('querystring');
 
-var data = querystring.stringify({
+const data = querystring.stringify({
   '${2:parameter}' : '${3:parameter value}',
 });
 
-var options = {
+const options = {
   host: '${4:host}',
-  port: '80',
+  port: 443,
   path: '/${5:path}',
   method: 'POST',
   headers: {
@@ -376,9 +376,15 @@ var options = {
   }
 };
 
-var req = requestInterface.request(options, function(response) {
+const req = requestInterface.request(options, (response) => {
+  let body = '';
   response.setEncoding('utf8');
-  response.on('data', function (result) {
+  response.on('data', (chunk) => {
+    body += chunk;
+  });
+
+  response.on('end', () => {
+    const result = JSON.parse(body);
     ${6:process the result}
   });
 });
