@@ -342,10 +342,10 @@ expect(function() {
 endsnippet
 
 snippet nrequest-get
-var requestInterface = require('${1:http or https}');
-var url = '${2:URL}';
-requestInterface.request(url, function(response) {
-  var data = '';
+const requestInterface = require('${1:http or https}');
+const url = '${2:URL}';
+requestInterface.request(url, (response) => {
+  let data = '';
   response.on('data', function (chunk) {
     data += chunk;
   });
