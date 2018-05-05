@@ -295,18 +295,18 @@ module.exports = ${1:Module};
 endsnippet
 
 snippet nreq
-var ${1:Module} = require('${2:filename}');
+const ${1:Module} = require('${2:filename}');
 endsnippet
 
 snippet npromise
-var promise = new Promise(function(resolve, reject) {
+const promise = new Promise(function(resolve, reject) {
 });
 endsnippet
 
 snippet nserver
-var http = require('http');
+const http = require('http');
 http.createServer(function(req, res) {
-  var remoteAddress = req.connection.remoteAddress;
+  const remoteAddress = req.connection.remoteAddress;
   res.writeHead(200, {'Content-Type': 'application/json'});
   res.write(JSON.stringify({}));
   res.end();
@@ -315,8 +315,8 @@ endsnippet
 
 snippet nevents
 // Extend ${1:Object} to inherit EventEmitter interface
-var EventEmitter = require('events').EventEmitter;
-var util = require('util');
+const EventEmitter = require('events').EventEmitter;
+const util = require('util');
 util.inherits(${2:Object}, EventEmitter);
 endsnippet
 
@@ -325,7 +325,7 @@ snippet nignoreLine
 endsnippet
 
 snippet ntest
-var expect = require('expect.js');
+const expect = require('expect.js');
 describe('${1:General description}', function(){
   it('${2:Use case}', function() {
     expect(${3:test}).to.be(null);
@@ -394,8 +394,8 @@ req.end();
 endsnippet
 
 snippet nmc
-var mc = require('mc');
-var client = new mc.Client([127.0.0.1]);
+const mc = require('mc');
+const client = new mc.Client([127.0.0.1]);
 client.connect(function(err) {
 
   client.get(key, function(err, data) {
